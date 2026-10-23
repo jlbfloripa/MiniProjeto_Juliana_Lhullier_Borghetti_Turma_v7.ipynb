@@ -48,7 +48,7 @@ _ GitHub Desktop
 3. CL_ID: Identificação do cliente (número do cliente);
 4. CL_GENERO: Sexo biológico informado pelo cliente;
 5. CL_EC: Estado civil do cliente:
-1: Casado ou união estával;
+1: Casado ou união estável;
 2: Divorciado;
 3: Separado;
 4. Solteiro;
@@ -59,4 +59,47 @@ _ GitHub Desktop
 9. PR_CAT: Categoria do produto adquirido;
 10. PR_NOME: Nome do produto adquirido.
 
-- 
+# Limpeza de dados:
+
+- Antes de tudo, resolvi criar uma cópia do csv (df_varejo_limpo);
+
+- Para melhor compreensão, renommei e verifiquei as colunas:
+    "DATA": "data",
+    "CO_ID": "ID_compra",
+    "CL_ID": "ID_cliente",
+    "CL_GENERO": "genero_cliente",
+    "CL_EC": "estado_civil",
+    "CL_FHL": "numero_filhos",
+    "CL_SEG": "classe_economica",
+    "PR_ID": "codigo_produto",
+    "PR_CAT": "categoria_produto",
+    "PR_NOME": "nome_produto"
+
+- Como apareceram várias colunas "Unnamed", resolvi verificar se essas colunas estavam vazias. Resolvi verificar todos os valores ausentes no DataFrame;
+- Aparentemente as colunas "Unnamed" estavam vazias (usando isna()), mas resolvi investigar mais a fundo;
+- Verifiquei todas (all) as colunas vazias (isna) e criei uma variável (colunas_vazia) para armazenar esses resultados;
+- Imprimi a contagem (len), o nome das colunas vazias e pedi uma lista;
+- Optei por remover as colunas totalmente vazias com dropna(), pois considerei que não tinham utilidade para análise e podiam inclusive me confundir;
+- Verifiquei novamente os valores ausentes em todas as colunas do DataFrame, não havia;
+- Verifiquei duplicatas no DataFrame completo, depois por coluna "ID_compra" e então por linhas completas para garantir que não havia registros duplicados;
+- Aparentemente, havia muitas linhas duplicadas no DataFrame. Fiz uma investigação comparando o total de linhas únicas e linhas duplicadas. Depois separei as linhas duplicadas para análise;
+
+-Usei a lógica (if/else) para preencher categorias vazias com "Sem Categoria"
+
+- Com os dados melhor organizados, verifiquei os tipos de dados contidos no DataFrame;
+- Conferi se ainda havia ausentes e duplicatas;
+
+- Ajustei os tipos de dados e verifiquei inconsistêcias
+- Validei a regra do identificador de número de compra, convertendo a string de data da compra utilizando o módulo datetime.
+
+ # Estatísticas
+ # Padrões de agrupamento
+ # Insights:
+ 1.
+ 2.
+ 3.
+ 4.
+ 5.
+ 6.
+ Produzir um pequeno bloco de conclusões (3–6 tópicos) com os principais insights obtidos e possíveis problemas remanescentes na base
+ # Conclusões 
