@@ -30,10 +30,10 @@ _ GitHub Desktop
 - Importei as bibliotecas que conheço e creio que posso precisar (pandas, os, numpy, seaborn e matplotlib)
 - Fiz a leitura do arquivo csv com pandas;
 - Fiz o download do csv Kaggle e salvei no meu computador;
-- Organizei os dados dentro da tabela;
+- Organizei os dados dentro da tabela, conforme orientação do professor;
 - Fiz este README;
 - Fiz um reposítório do GitHub e comecei a dar commits;
-- Visualizei as informações do DataFrame;
+- Visualizei as informações do DataFrame, visualizei que havia 4 colunas com todos os valores nulos e nenhum mais;
 - Verifiquei as 5 primeiras linhas do DataFrame;
 - Verifiquei as últimas 5 linhas do DataFrame;
 - Verifiquei 5 linhas aleatórias dentro do DataFrame;
@@ -81,8 +81,16 @@ _ GitHub Desktop
 - Imprimi a contagem (len), o nome das colunas vazias e pedi uma lista;
 - Optei por remover as colunas totalmente vazias com dropna(), pois considerei que não tinham utilidade para análise e podiam inclusive me confundir;
 - Verifiquei novamente os valores ausentes em todas as colunas do DataFrame, não havia;
+
 - Verifiquei duplicatas no DataFrame completo, depois por coluna "ID_compra" e então por linhas completas para garantir que não havia registros duplicados;
-- Aparentemente, havia muitas linhas duplicadas no DataFrame. Fiz uma investigação comparando o total de linhas únicas e linhas duplicadas. Depois separei as linhas duplicadas para análise;
+- Havia 81.1529 duplicados;
+
+- Resolvi verificar então registros duplicados nas colunas "data", "ID_compra", "ID_cliente" e "nome_produto", pois parecia ser a mesma compra, pelo mesmo cliente, mas poderiam ser diferentes produtos;
+
+- Havia ainda 176327 linhas duplicadas no DataFrame. 
+
+- Fiz uma investigação comparando o total de linhas únicas e linhas duplicadas. Depois separei as linhas duplicadas para análise. Não consegui resolver, empaquei.
+
 
 -Usei a lógica (if/else) para preencher categorias vazias com "Sem Categoria"
 
