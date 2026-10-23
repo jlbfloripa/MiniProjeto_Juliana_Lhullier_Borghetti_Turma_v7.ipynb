@@ -83,14 +83,22 @@ _ GitHub Desktop
 - Verifiquei novamente os valores ausentes em todas as colunas do DataFrame, não havia;
 
 - Verifiquei duplicatas no DataFrame completo, depois por coluna "ID_compra" e então por linhas completas para garantir que não havia registros duplicados;
-- Havia 81.1529 duplicados;
 
-- Resolvi verificar então registros duplicados nas colunas "data", "ID_compra", "ID_cliente" e "nome_produto", pois parecia ser a mesma compra, pelo mesmo cliente, mas poderiam ser diferentes produtos;
+- 830.000 linhas sem dados ausentes... 184.330 linhas duplicadas quando verifiquei o duplicated no DataFrame completo;
+- Havia 811.529 duplicados na coluna "ID_compra";
 
-- Havia ainda 176327 linhas duplicadas no DataFrame. 
+- Resolvi verificar então registros duplicados nas colunas "data", "ID_compra", "ID_cliente" e "nome_produto", pois parecia ser a mesma compra, pelo mesmo cliente, mas poderiam ser diferentes produtos. 
+- Havia ainda 176.327 linhas duplicadas no DataFrame. 
+
+- Resolvi verificar registros duplicados nas colunas "data", "ID_compra", "ID_cliente" sem "nome_produto"
+- Havia novamente 811.529;
+
+- Resolvi verificar então registros duplicados verificando cada uma delas, todas as colunas;
+- Havia 96.553 duplicatas;
 
 - Fiz uma investigação comparando o total de linhas únicas e linhas duplicadas. Depois separei as linhas duplicadas para análise. Não consegui resolver, empaquei.
-
+- Linhas duplicadas:  184.330
+- Linhas únicas:  733.447
 
 -Usei a lógica (if/else) para preencher categorias vazias com "Sem Categoria"
 
