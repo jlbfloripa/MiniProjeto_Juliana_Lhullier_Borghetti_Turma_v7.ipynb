@@ -100,13 +100,24 @@ _ GitHub Desktop
 - Linhas duplicadas:  184.330
 - Linhas únicas:  733.447
 
--Usei a lógica (if/else) para preencher categorias vazias com "Sem Categoria"
+- Com a ajuda do professor e colegas, entre as opções drop_duplicates() e nunique(), optei por fazer os dois para conferir. O drop_duplicates foi a solução.
 
-- Com os dados melhor organizados, verifiquei os tipos de dados contidos no DataFrame;
-- Conferi se ainda havia ausentes e duplicatas;
+- Apesar de não haver valores vazios de acordo com as informações já obtidas com info(), conferi com isna() a coluna "categoria_produto", visto que era pedido na documentação do mini-projeto "usar a lógica (if/else) para preencher as categorias vazias com "Sem Categoria"";
+- Verifiquei (com a ajuda do professor) que havia os valores "#N/D" nas colunas "categoria_produto" e "nome_produto". Usei a lógica (if/else) para preencher as categorias com "#N/D" substituindo por "Sem Categoria";
+  
+- Com o DataFrame limpo, verifiquei novamente os tipos de dados;
 
-- Ajustei os tipos de dados e verifiquei inconsistêcias
-- Validei a regra do identificador de número de compra, convertendo a string de data da compra utilizando o módulo datetime.
+- Verifiquei os tipos de dados e verifiquei inconsistêcias nas colunas str (string) usando .unique() para conferir se havia caracteres especiais, letras minúsculas, variações que pediriam tratamento. Não havia.
+
+ # Módulo Datetime
+
+ - Importei a classe date do módulo datetime;
+- Conferi o formato e tipo de dados da coluna "data";
+ -  Converti o texto para datetime (validei a regra do identificador de número de compra, convertendo a string de data da compra utilizando o módulo datetime)
+- Conferi a conversão;
+- Conferi se há algum valor nulo após a conversão;
+-  Conferi algumas linhas para garantir;
+- Conferi as informações para ter certeza.
 
  # Estatísticas
  # Padrões de agrupamento
@@ -119,3 +130,22 @@ _ GitHub Desktop
  6.
  Produzir um pequeno bloco de conclusões (3–6 tópicos) com os principais insights obtidos e possíveis problemas remanescentes na base
  # Conclusões 
+
+
+ George:
+
+ Tratamento de Nulos em Dimensões Físicas: Para a coluna de nome do produto (PR_NOME), a decisão foi remover as linhas com valores nulos. A justificativa é que um registro de compra sem a descrição do produto perde seu valor analítico granular. Como a categoria do produto já foi preservada na etapa anterior, a remoção não compromete a análise macro.
+
+Identificação de pedidos: A base possui várias linhas com o mesmo CO_ID porque um pedido pode incluir vários produtos. Remover essas linhas descartaria itens legítimos; por isso, o script preserva as linhas e usa nunique() para contar cada pedido apenas uma vez nos agrupamentos. Após a limpeza, a base contém 826.350 linhas de produtos e 18.469 pedidos distintos.
+
+Conversão de Tipos (Datas): A coluna DATA foi convertida de texto para o tipo datetime utilizando a função pd.to_datetime. Datas inválidas (como 30/02) foram convertidas para nulas e posteriormente removidas, assegurando a consistência para futuras análises temporais.
+
+Exportação dos Dados: Ao final do processo de limpeza, a base tratada foi exportada no formato df_limpo.csv, conforme exigido nas etapas do projeto.
+3. Principais Insights Obtidos
+A partir das estatísticas descritivas e dos agrupamentos realizados, destacam-se os seguintes pontos:
+
+Qualidade dos Dados: O script remove as colunas extras e as linhas sem nome de produto, padroniza categorias e descarta datas inválidas. As várias linhas de um mesmo CO_ID são preservadas para não apagar produtos do pedido.
+Liderança por Gênero: O gênero F aparece em 9.614 pedidos distintos, contra 8.855 do gênero M.
+Categorias com mais pedidos: Alimentos está presente em 18.267 pedidos distintos, seguido por Higiene (17.610) e Limpeza (17.475). Essa contagem indica presença em pedidos, não faturamento ou unidades vendidas.
+Perfil Familiar (Número de Filhos): Na coluna CL_FHL, calculada uma vez por cliente, a média é 1,14 e a mediana é 0 filho(s). A mediana igual a zero indica que pelo menos metade dos clientes válidos tem valor zero.
+Oportunidade de Negócio: Alimentos é uma categoria a investigar em análises futuras. A contagem de pedidos, isoladamente, não permite estimar faturamento nem retorno de campanhas
