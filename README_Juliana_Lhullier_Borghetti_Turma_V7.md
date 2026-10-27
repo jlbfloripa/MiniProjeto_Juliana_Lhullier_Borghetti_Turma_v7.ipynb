@@ -120,6 +120,23 @@ _ GitHub Desktop
 - Conferi as informações para ter certeza.
 
  # Estatísticas
+
+- Como percebi anteriormente, o número de filhos por cliente se repetia. Assim, as estatísticas provenientes exclusivamente da coluna "numero_filhos" não seriam confiáveis;
+- Por essa razão, comparei a quantidade de clientes únicos com a quantidade de linhas na coluna do número de filhos ("ID_cliente" e "numero_filhos");
+- Havia apenas 1.000 clientes únicos para 733.447 registros do número de filhos;
+- Agrupei um único valor de número de filhos por cliente usando o groupby() para cruzar os dados das duas colunas ("ID_cliente" e "numero_filhos") e o .first() para selecionar o primeiro valor não-nulo de filhos para cada cliente;
+-  Contei quantos clientes tinham cada número de filhos (0, 1, 2, 3, 4) usando value_counts() e pedi para ordenar em ordem crescente com .sort_index();
+- Assim, verifiquei que: 527 cliente não tinham filhos, 125 clientes tinham 1 filho, 130 clientes tinham 2 filhos, 121 clientes tinham 3 filhos e 97 clientes tinham 4 filhos;
+- Utilizei "estatísticas descritivas básicas para a coluna de número de filhos do cliente (média; mediana; desvio padrão; máximo; mínimo; e contagem, quartis)" propostas para o mini-projeto;
+- Como describe não traz a moda, fiz separadamente usando .mode();
+- Para melhor visualização, fiz a mesma operação com print(), levando em conta as seguintes estatísticas:
+* Contagem (count) = Das 733.447, foram considerados 1.000 clientes únicos;
+* Mínimo (min) = O valor mínimo de filhos encontrado foi zero (sem filhos);
+* Máximo (max) = O número máximo de filhos foi 4;
+* Média (mean) = A soma do número total de filhos dividido pelo número de registros válidos resultou na média de 1.14 filhos por cliente;  
+* Desvio padrão (std) = O desvio padrão do número de filhos foi de cerca de 1.41, indicando uma dispersão dos valores em relação á média;
+* Quartis (Q1, Q2, Q3, Q4) = Até 50% dos cliente não tem filhos, 75% tem até 2 filhos e o restante dos cliente têm 3 a 4 filhos.
+
  # Padrões de agrupamento
  # Insights:
  1.
