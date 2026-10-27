@@ -137,7 +137,21 @@ _ GitHub Desktop
 * Desvio padrão (std) = O desvio padrão do número de filhos foi de cerca de 1.41, indicando uma dispersão dos valores em relação á média;
 * Quartis (Q1, Q2, Q3, Q4) = Até 50% dos cliente não tem filhos, 75% tem até 2 filhos e o restante dos cliente têm 3 a 4 filhos.
 
- # Padrões de agrupamento
+ # Padrões de agrupamento 
+ 
+ - Conforme orientação para o mini-projeto, explorei padrões de agrupamento "com pelo menos dois agrupamentos (por exemplo: gênero com mais vendas, compras), usando groupby() ou pivot_table()";
+ - Contei os registros de compra combinando a categoria do produto com o número de filhos com o objetivo de analisar a relação entre o tipo de produto comprado por clientes com nenhum, 1, 2, 3 ou mais filhos;
+ - Pedi para organizar em ordem descrescente para visualizar primeiro as categorias mais frequentes e o total de vendas ;
+ - Considerando que um cliente pode comprar várias categorias, percebi que os totais dessas colunas não representavam necessariamente grupos de clientes. Não pude associar o número de filhos com as preferências de compra;
+
+ - Para calcular a proporção de clientes de cada grupo que comprou cada categoria, usei o pivot_table();
+ - Calculei a categoria com maior percentual de compras para cada número de filhos;
+-Criei uma tabela com pivot_table() cruzando duas variáveis - número de filhos e categoria do produto;
+- Usei index para colocar o número de filhos nas linhas;
+- Coloquei a categoria do produto na coluna com columns;
+- Usei o aggfunc= "size" para contar os registros em cada combinação filhos-categoria;
+- Pedi para colocar o número zero quando não houvesse registro com fill_value = 0.
+
  # Insights:
  1.
  2.
